@@ -1,30 +1,24 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+const message="Wellcome Get Reader to master Vue-Js -3";
+const date="12 jan 2025";
+
+function GetDate(){
+  const  date=new Date()
+  return date.toDateString()
+}
+
 </script>
 
+
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+    <div class="container mx-auto flex items-center justify-center min-h-screen flex-col">
+      <h1 class="text-4xl">{{ message }}</h1>
+      <h2 class="text-xl mt-10 text-gary-700">Todoy is <span>{{ GetDate() }}</span></h2>
+
+    </div>
 </template>
 
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
 </style>
