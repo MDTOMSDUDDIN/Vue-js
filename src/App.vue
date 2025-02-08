@@ -1,36 +1,28 @@
 <script setup>
-function onformsubmit(){
-  alert('form submit successfull ')
-}
-function onClick(){
-  alert('i am click event');
-}
+import { reactive } from 'vue';
 
-function OnRightClick(){
-  alert('on right click Event ');
-}
 
-function OnLeftClick(){
-  alert('on left click event ');
-}
-function onChange(){
-  alert('I am On Change Event');
+const myFormData=reactive({
+    user:"",
+    password:"",
+})
+function formdata(){
+    console.log(myFormData);
 }
 </script>
 
 <template>
-  <form @submit.prevent="onformsubmit">
-    <button type="submit">Form submit Event </button>
+  <form @submit.prevent="formdata" >
+    <label >User Name =>{{ myFormData.user }}</label><br>
+    <input v-model="myFormData.user" type="text" placeholder="User Name"><br>
+
+    
+    <label >Password=>{{ myFormData.password }}</label><br>
+    <input v-model="myFormData.password" type="possword" placeholder="Password"><br>
+
+    <button type="submit">submit</button>
+
   </form>
-
-
-  <button @click="onClick">Click event </button>
-  
-  <button @click.right="OnRightClick">Right click Event</button>
-  <button @click.left="OnLeftClick">left click Event</button>
-  <input @change="onChange" placeholder="On change Event ">
-  <input @keyup="onChange" placeholder="On keyup ">
-  <input @keydown="onChange" placeholder="On keydown Event ">
 </template>
 
 <style scoped>
