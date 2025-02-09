@@ -14,7 +14,26 @@ async function CallCountryList(){
  
 <template>
 
-<p>{{ JSON.stringify(ListData) }}</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+         <th>ID</th>
+         <th>name</th>
+         <th>Capital</th>
+         <th>short_description</th>
+         <th>flag</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr v-for="(item) in ListData">
+         <td>{{ item['id'] }}</td>
+         <td>{{ item['name'] }}</td>
+         <td>{{ item['capital'] }}</td>
+         <td>{{ item['short_description'] }}</td>
+         <td><img class="w-25"  alt="flag" :src="item['flag']"></td>
+        </tr>
+    </tbody>
+</table>
 
 </template>
  
