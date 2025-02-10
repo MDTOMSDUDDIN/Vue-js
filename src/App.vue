@@ -21,7 +21,7 @@ import { ref } from 'vue';
                 <h3>What is Teams</h3>
             </div>
             <!-- content -->
-            <div class=" px-5 pt-0 text-left pb-5" :class="accordinIndex==0?'':'hidden'">
+            <div class=" px-5 pt-0 text-left pb-5" v-show="accordinIndex==0">
             <div class=" leading-5 font-light pl-9 ">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad blanditiis placeat delectus fugit provident debitis voluptatibus quae non beatae natus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, labore!
             </div>
@@ -35,7 +35,7 @@ import { ref } from 'vue';
                 <h3>accordion-header part 2</h3>
             </div>
             <!-- content -->
-            <div class=" px-5 pt-0 text-left pb-5" :class="accordinIndex==1?'':'hidden'">
+            <div class=" px-5 pt-0 text-left pb-5" v-show="accordinIndex==1">
             <p class=" leading-5 font-light pl-9 ">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad blanditiis placeat delectus fugit provident debitis voluptatibus quae non beatae natus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, labore!
             </p>
@@ -49,7 +49,7 @@ import { ref } from 'vue';
                 <h3>accordion-header part 3</h3>
             </div>
             <!-- content -->
-            <div class=" px-5 pt-0 text-left pb-5 " :class="accordinIndex==2?'':'hidden'">
+            <div class=" px-5 pt-0 text-left pb-5 " v-show="accordinIndex==2">
             <p class=" leading-5 font-light pl-9 ">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad blanditiis placeat delectus fugit provident debitis voluptatibus quae non beatae natus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, labore!
             </p>
@@ -63,7 +63,7 @@ import { ref } from 'vue';
                 <h3>accordion-header part 4</h3>
             </div>
             <!-- content -->
-            <div class=" px-5 pt-0 text-left pb-5 " :class="accordinIndex==3?'':'hidden'">
+            <div class=" px-5 pt-0 text-left pb-5 " v-show="accordinIndex==3">
             <p class=" leading-5 font-light pl-9 ">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad blanditiis placeat delectus fugit provident debitis voluptatibus quae non beatae natus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, labore!
             </p>
