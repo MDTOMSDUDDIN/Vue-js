@@ -1,64 +1,82 @@
 <script setup>
-const bgOrange='background-color:red';
-const bgindigo='background-color:green';
-const bggreen='background-color:orange';
+import { ref } from 'vue';
 
-const bgRed='background-color:red';
-const bgDarkGreen='background-color:green';
-
-
-const weekday=true;
-
-const colors={
-    backgroundColor:"info",
-    borderColor:"info",
-   color:'white',
-}
-const messageType='success';
-
-if('error'==messageType){
-    colors.backgroundColor='red',
-    colors.borderColor='red',
-    colors.color='white'
-}
-else if('success'==messageType){
-    colors.backgroundColor='green',
-    colors.borderColor='darkgreen',
-    colors.color='white'
-}
-else if('warning'==messageType){
-    colors.backgroundColor='orange',
-    colors.borderColor='orange',
-    colors.color='white'
-}
-
+ const accordinIndex=ref(0)
 </script>
-
+ 
 <template>
-    <section class="container mx-auto">
-        <h4 class="text-center py-12 text-3xl">Class & Style binding</h4>
-
-        <section class="flex space-x-10">
-        <div class="w-1/3 h-16" :style="bgOrange" ></div>
-        <div class="w-1/3 h-16" :style="bgindigo"></div>
-        <div class="w-1/3 h-16" :style="bggreen"></div>
-        </section>
-    
-        <section class="mt-10 ">
-            <div class=" h-16 flex items-center justify-center text-white" :style="[weekday?bgRed:bgDarkGreen, weekday==true?'text-2xl':'text-4xl']">
-                Its is a Weekday !
+<section class="container mx-auto flex item-center flex-col bg-slate-400 ">
+    <h1 class="text-center text-5xl py-10">Event and Reactivity in vue js </h1>
+    <div class="p-10 bg-gridient-to-br from-indifo-100 to-indigo-300 grid place-items-center ">
+     <div class="w-6/12 mx-auto rounded border">
+     <div class="bg-white p-18 shadow-sm">
+        <h1 class=" font-medium text-gray-800  text-4xl">Servel  windows stacks on each others</h1>
+        <p class="text-4xl">The accordin and control this Elements </p>
+        <div class="h-1 w-full mx-auto border-b my-5"></div>
+        
+        <div class="transti hover:bg-indigo-50 ">
+            <!-- header -->
+            <div @click="accordinIndex=0" class=" accordion-header cursor-pointer transition flex space-x-5 px-5 items-center text-3xl pb-6 ">
+                <i class="fa fa-plus"></i>
+                <h3>What is Teams</h3>
             </div>
-        </section>
-
-        <section class="mt-10 ">
-            <div class=" border-t-4 rounded-b py-3 shadow-md" :style="colors">
-                <p class="font-blod">Our Privicy Policy Has Changed</p>
-                <p class="text-sm">Make sure you Know how these change Effet</p>
+            <!-- content -->
+            <div class=" px-5 pt-0 text-left pb-5" :class="accordinIndex==0?'':'hidden'">
+            <div class=" leading-5 font-light pl-9 ">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad blanditiis placeat delectus fugit provident debitis voluptatibus quae non beatae natus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, labore!
             </div>
-        </section>
-    </section>
+         </div>
+        </div>
+
+        <div class="transti hover:bg-indigo-50 ">
+            <!-- header -->
+            <div @click="accordinIndex=1" class=" accordion-header cursor-pointer transition flex space-x-5 px-5 items-center text-3xl pb-6  ">
+                <i class="fa fa-plus"></i>
+                <h3>accordion-header part 2</h3>
+            </div>
+            <!-- content -->
+            <div class=" px-5 pt-0 text-left pb-5" :class="accordinIndex==1?'':'hidden'">
+            <p class=" leading-5 font-light pl-9 ">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad blanditiis placeat delectus fugit provident debitis voluptatibus quae non beatae natus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, labore!
+            </p>
+         </div>
+        </div>
+
+        <div class="transti hover:bg-indigo-50 ">
+            <!-- header -->
+            <div @click="accordinIndex=2" class=" accordion-header cursor-pointer transition flex space-x-5 px-5 items-center text-3xl pb-6 ">
+                <i class="fa fa-plus"></i>
+                <h3>accordion-header part 3</h3>
+            </div>
+            <!-- content -->
+            <div class=" px-5 pt-0 text-left pb-5 " :class="accordinIndex==2?'':'hidden'">
+            <p class=" leading-5 font-light pl-9 ">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad blanditiis placeat delectus fugit provident debitis voluptatibus quae non beatae natus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, labore!
+            </p>
+         </div>
+        </div>
+
+        <div class="transti hover:bg-indigo-50 ">
+            <!-- header -->
+            <div @click="accordinIndex=3" class=" accordion-header cursor-pointer transition flex space-x-5 px-5 items-center text-3xl pb-6 ">
+                <i class="fa fa-plus"></i>
+                <h3>accordion-header part 4</h3>
+            </div>
+            <!-- content -->
+            <div class=" px-5 pt-0 text-left pb-5 " :class="accordinIndex==3?'':'hidden'">
+            <p class=" leading-5 font-light pl-9 ">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad blanditiis placeat delectus fugit provident debitis voluptatibus quae non beatae natus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, labore!
+            </p>
+         </div>
+        </div>
+
+     </div>
+     </div>
+    </div>
+
+</section>
 </template>
-
+ 
 <style scoped>
-
+ 
 </style>
