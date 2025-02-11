@@ -1,95 +1,47 @@
 <script setup>
-import { reactive, ref } from 'vue';
-const activeIndex=ref(0);
-const accordins=reactive([
- {
-    heading:"Whats is teams ?",
-    content:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci deleniti voluptatibus cupiditate quos modi quaerat, omnis aperiam cumque doloremque distinctio exercitationem architecto beatae. Inventore quis suscipit in pariatur ab et!",
-    isOpen:true
- },
+import { ref } from 'vue';
+
+ const FullName=ref('https://images.pexels.com/photos/30650072/pexels-photo-30650072/free-photo-of-modern-minimalist-living-room-interior-design.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')
+ const images=[
+   {
+      fullName:"https://images.pexels.com/photos/30650072/pexels-photo-30650072/free-photo-of-modern-minimalist-living-room-interior-design.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      Thumbnail:"https://images.pexels.com/photos/30650072/pexels-photo-30650072/free-photo-of-modern-minimalist-living-room-interior-design.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+   },
+   
+   {
+      fullName:"https://images.pexels.com/photos/13938350/pexels-photo-13938350.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      Thumbnail:"https://images.pexels.com/photos/13938350/pexels-photo-13938350.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+   },
+   {
+      fullName:"https://images.pexels.com/photos/28549672/pexels-photo-28549672/free-photo-of-minimalist-interior-with-shadows-in-kyiv.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      Thumbnail:"https://images.pexels.com/photos/28549672/pexels-photo-28549672/free-photo-of-minimalist-interior-with-shadows-in-kyiv.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+   },
  
- {
-    heading:"When using to Accodion Component",
-    content:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci deleniti voluptatibus cupiditate quos modi quaerat, omnis aperiam cumque doloremque distinctio exercitationem architecto beatae. Inventore quis suscipit in pariatur ab et!",
-    isOpen:false
- },
- {
-    heading:"How can its defined ?",
-    content:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci deleniti voluptatibus cupiditate quos modi quaerat, omnis aperiam cumque doloremque distinctio exercitationem architecto beatae. Inventore quis suscipit in pariatur ab et!",
-    isOpen:false
- },
- {
-    heading:"to do nothing ?",
-    content:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci deleniti voluptatibus cupiditate quos modi quaerat, omnis aperiam cumque doloremque distinctio exercitationem architecto beatae. Inventore quis suscipit in pariatur ab et!",
-    isOpen:false
+   {
+      fullName:"http://images.pexels.com/photos/30635845/pexels-photo-30635845/free-photo-of-elegant-hand-holding-a-single-pink-tulip-flower.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      Thumbnail:"http://images.pexels.com/photos/30635845/pexels-photo-30635845/free-photo-of-elegant-hand-holding-a-single-pink-tulip-flower.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+   },
+ ]
+
+ function SetImage(image){
+   FullName.value=image.fullName
  }
-
-]) ;
-
 </script>
  
 <template>
-<section class="container mx-auto flex item-center flex-col bg-slate-400 ">
-    <h1 class="text-center text-5xl py-10">Event and Reactivity in vue js </h1>
-    <div class="p-10 bg-gridient-to-br from-indifo-100 to-indigo-300 grid place-items-center ">
-     <div class="w-6/12 mx-auto rounded border">
-        <div class=" border-blue-100 text-center mb-2 shadow-lg bg-yellow-50 ">
-            <h1 class=" font-medium text-gray-800  text-4xl">Servel  windows stacks on each others</h1>
-            <p class="text-4xl">The accordin and control this Elements </p>
-        </div>
-     <div class="bg-white p-18 shadow-sm">
+<section class=" container mx-auto flex flex-col">
+   <h1 class=" text-4xl text-center m-3 p-3">Event & Reactivity</h1> 
+   <div class="">
+      <div class="flex justify-center items-center space-x-2">
+         <img @click="SetImage(image)" class=" cursor-pointer h-[300px] w-1/6" v-for="image in images" :src="image.Thumbnail">
+      </div>
+      <h1  class="text-4xl m-=3 text-center bg-indigo-50">Show Carousel</h1>
+      <div class="mt-5 flex justify-center  items-center ">
         
-        
-        <div class="h-1 w-full mx-auto border-b my-5"></div>
-  
-        <div  class="transti hover:bg-indigo-50" v-for="accordin in accordins">
-            <!-- header -->
-            <div @click="accordin.isOpen=! accordin.isOpen" class=" accordion-header cursor-pointer transition flex space-x-5 px-5 items-center text-3xl pb-6 ">
-                <i class="fa fa-plus"></i>
-                <h3>{{ accordin.heading }}</h3>
-            </div>
-            <!-- content -->
-            <div class=" px-5 pt-0 text-left pb-5">
-            <div class=" leading-5 font-light pl-9" v-show="accordin.isOpen">
-                {{ accordin.content }}
-            </div>
-         </div>
-        </div>
-
-     </div>
-     </div>
-    </div>
-
-
-    <div class="p-10 bg-gridient-to-br from-indifo-100 to-indigo-300 grid place-items-center ">
-     <div class="w-6/12 mx-auto rounded border">
-        <div class=" border-blue-100 text-center mb-2 shadow-lg bg-yellow-50 ">
-            <h1 class=" font-medium text-gray-800  text-4xl">Servel  windows stacks on each others</h1>
-            <p class="text-4xl">The accordin and control this Elements </p>
-        </div>
-     <div class="bg-white p-18 shadow-sm">
-        
-        
-        <div class="h-1 w-full mx-auto border-b my-5"></div>
-  
-        <div  class="transti hover:bg-indigo-50" v-for="(accordin , index) in accordins">
-            <!-- header -->
-            <div @click="activeIndex=index" class=" accordion-header cursor-pointer transition flex space-x-5 px-5 items-center text-3xl pb-6 ">
-                <i class="fa fa-plus"></i>
-                <h3>{{ accordin.heading }}</h3>
-            </div>
-            <!-- content -->
-            <div class=" px-5 pt-0 text-left pb-5" v-show="index==activeIndex">
-            <div class=" leading-5 font-light pl-9" >
-                {{ accordin.content }}
-            </div>
-         </div>
-        </div>
-
-     </div>
-     </div>
-    </div>
-
+         <img class=" cursor-pointer min-h-1.5 flex " :src="FullName">
+      </div>
+   </div>
+    
 </section>
 </template>
  
