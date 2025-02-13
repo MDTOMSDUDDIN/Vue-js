@@ -1,45 +1,38 @@
 <script setup>
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 
- const saarsCountries=reactive([
-  {name:'bangladesh', capital:'Dhaka'},
-   {name:'Canada', capital:'Ottawa'},
-  {name:'Brazil', capital:'Brasília'},
-  {name:'Japan', capital:'Tokyo'},
-  {name:'Australia', capital:'Canberra'},
-  {name:'South Africa', capital:'Pretoria'}
+ 
+ const persons=reactive([
+  {name:"tomas",age:123,email:"a@gmail.com"},
+  {name:"parvax",age:21,email:"b@gmail.com"},
+  {name:"rifat",age:545,email:"c@gmail.com"},
+  {name:"sabbir",age:5,email:"c@gmail.com"},
  ])
- const capitals=["Dhaka","Ottawa","Brasília","Tokyo","Canberra","Pretoria"]
 
- function getRandomCapitials(){
-  // return capitals.sort(()=>Math.random() -0.5)
-  return capitals
- }
-
- function getscore(){
-  let Score=0;
-  saarsCountries.forEach(country=>{
-    if(country.answer===country.capital){
-      Score++
-    }
-  })
-  return Score
- }
+ const activeIndex=ref(0)
 </script>
  
 <template>
-  <section class="mx-auto container">
-    <h1 class="text-2xl mb-10 text-center">Vuejs Simple Quiz projects</h1>
-    <p class="mb-10">{{ saarsCountries }}</p>
-    <p class="mb-10 text-center">Total Score : {{ getscore() }}</p>
-    <div class="my-5 m-5 p-4 border border-gray-500" v-for="(country,index) in saarsCountries" :key="country.name" >
-      <p class="mb-1">Whats is the Capital of {{ country.name }} ?</p>
-      <template v-for="capital in getRandomCapitials()">
-      <input :name="country.name" type="radio" :value="capital"  v-model="country.answer">
-      <label for="" class="ml-2 mr-2">{{capital }}</label>
-      </template>
+ <section class="m-12 p-7 container">
+  <h1 class="text-2xl mb-10">Logic Dynamic</h1>
+  <p class="my-10">
+    {{ persons }}
+  </p>
+  <div class="flex">
+    <div class="w-1/2">
+        <p>{{ activeIndex + 1 }}</p>
+        <p class="mb-10">
+            <h1>Select a person</h1>
+            <select name="person" id="person" v-model="activeIndex" >
+                <option :value="index" v-for="(person ,index) in persons" :key="person.name" >{{ person.name }}</option>
+            </select>
+        </p>
     </div>
-  </section>
+    <div>
+        <input type="text"  class="my-3" :placeholder="key" v-model="persons[activeIndex][key]" v-for="(value,key ,index2) in persons[activeIndex]" :key="key" />
+    </div>
+  </div>
+ </section>
 </template>
  
 <style scoped>
