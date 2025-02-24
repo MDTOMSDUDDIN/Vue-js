@@ -1,26 +1,28 @@
 <script setup>
 import { ref } from 'vue';
-import TextComponent from './components/TextComponent.vue';
+import task from './components/task.vue';
+import Radio from './components/Radio.vue';
+const taskdone = ref(false);
 
-const name = ref('tomas uddin');
-const email = ref('t@gmail.com');
+const fruit = ref('apple');
 </script>
 
 <template>
   <div class="p-12  m-auto">
-    Orginal Name:{{ name }} <br>
-    Orginal email:{{ email }}
+    Orginal Task:{{ taskdone }}
     <br>
     <div>
-      <label for="">Name :</label>
-      <input type="text" v-model="name">
+      <task label="tihs is task" v-model="taskdone" />
     </div>
-    <br><br>
-    <div>
-      <label for="">Component Value:</label><br><br>
-      <TextComponent label="name" v-model="name" />
-      <TextComponent label="email" v-model="email" />
-    </div>
+  </div>
+
+
+
+  <div class="text-center text-4xl">
+    <label>Your Favarite Fruits :{{ fruit }}</label>
+    <Radio v-model="fruit" label="apple" value="apple" />
+    <Radio v-model="fruit" label="orange" value="orange" />
+    <Radio v-model="fruit" label="banana" value="banana" />
   </div>
 </template>
 
