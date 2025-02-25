@@ -1,18 +1,11 @@
-<script setup>
-import { provide, reactive } from 'vue';
+<script setup lang="ts">
 import ComponentA from './components/componentA.vue';
-const person=reactive({
-  name:'tomas',
-  address:'sirajgonj',
-});
-provide('person',person); 
 
 </script>
- 
+
 <template>
-<ComponentA />
+  <ComponentA v-slot:default="slotProps">
+    <p>Name: {{ slotProps.user.name }}</p>
+    <p>Age: {{ slotProps.user.age }}</p>
+  </ComponentA>
 </template>
- 
-<style scoped>
- 
-</style>
